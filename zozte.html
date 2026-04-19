@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Azaa 💕</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500&display=swap');
+
+:root {
+  --pink:#f9a8d4; --pink-deep:#ec4899;
+  --purple:#c084fc; --purple-deep:#9333ea;
+  --dark:#0f0a1a; --dark2:#1a1025; --dark3:#251535;
+  --text:#f8f0ff; --muted:#d8b4fe; --gold:#fbbf24;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--dark);color:var(--text);min-height:100vh;overflow-x:hidden}
+
+.orb{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0;animation:orbFloat 13s ease-in-out infinite alternate}
+.orb1{width:500px;height:500px;background:rgba(147,51,234,0.15);top:-120px;left:-120px}
+.orb2{width:400px;height:400px;background:rgba(236,72,153,0.12);bottom:-80px;right:-80px;animation-delay:-5s}
+.orb3{width:280px;height:280px;background:rgba(192,132,252,0.09);top:40%;left:55%;animation-delay:-9s}
+@keyframes orbFloat{from{transform:translate(0,0) scale(1)}to{transform:translate(40px,30px) scale(1.1)}}
+
+#particles-canvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
+
+.screen{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;position:relative;z-index:1}
+.hidden{display:none!important}
+
+.glass{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-radius:28px;padding:3rem 2.8rem;max-width:680px;width:100%;text-align:center;box-shadow:0 8px 70px rgba(192,132,252,0.1),inset 0 1px 0 rgba(255,255,255,0.07)}
+
+h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5.5vw,3.4rem);background:linear-gradient(135deg,var(--pink),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.25;margin-bottom:1rem}
+h2{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,4vw,2.1rem);background:linear-gradient(135deg,var(--pink),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1rem}
+p{font-size:1.05rem;line-height:1.85;color:var(--muted);margin-bottom:1rem}
+em{color:var(--text);font-style:italic}
+strong.hi{color:var(--pink)}
+
+.name-glow{background:linear-gradient(135deg,#fbbf24,#f9a8d4,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:700}
+
+.btn{display:inline-block;margin-top:1.4rem;padding:0.9rem 2.5rem;background:linear-gradient(135deg,var(--pink-deep),var(--purple-deep));color:#fff;border:none;border-radius:50px;font-size:1.05rem;font-weight:500;cursor:pointer;transition:transform .25s,box-shadow .25s;box-shadow:0 4px 30px rgba(236,72,153,0.38);letter-spacing:.02em;position:relative;overflow:hidden}
+.btn::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.14),transparent);opacity:0;transition:opacity .2s}
+.btn:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 10px 45px rgba(147,51,234,.5)}
+.btn:hover::before{opacity:1}
+.btn:active{transform:scale(.97)}
+.btn-outline{background:transparent;border:1.5px solid rgba(255,255,255,.2);color:var(--text);box-shadow:none;margin:.4rem}
+.btn-outline:hover{background:rgba(255,255,255,.07);border-color:var(--pink);box-shadow:0 4px 20px rgba(236,72,153,.22)}
+.btn-row{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:1.5rem}
+
+/* typing */
+#typing-text{min-height:6rem;font-style:italic;font-size:1.08rem;line-height:2;color:var(--text)}
+.cursor{display:inline-block;width:2px;height:1.1em;background:var(--pink);animation:blink .8s step-end infinite;vertical-align:text-bottom;margin-left:2px}
+@keyframes blink{50%{opacity:0}}
+
+.heartbeat{display:inline-block;animation:hb 1.9s ease-in-out infinite}
+@keyframes hb{0%,100%{transform:scale(1)}14%{transform:scale(1.18)}28%{transform:scale(1)}42%{transform:scale(1.1)}70%{transform:scale(1)}}
+
+/* quote cards */
+.qcard{background:rgba(255,255,255,.04);border-left:3px solid var(--pink-deep);border-radius:0 16px 16px 0;padding:1.2rem 1.5rem;margin:1.2rem 0;text-align:left}
+.qcard p{font-family:'Playfair Display',serif;font-style:italic;font-size:1.03rem;color:var(--text);margin:0;line-height:1.85}
+.qcard.purple{border-left-color:var(--purple-deep)}
+.qcard.gold{border-left-color:var(--gold)}
+
+/* poem lines */
+.poem-line{font-family:'Playfair Display',serif;font-style:italic;font-size:1.1rem;color:var(--text);margin:.65rem 0;opacity:0;animation:pReveal .75s ease forwards}
+@keyframes pReveal{from{opacity:0;transform:translateX(-20px)}to{opacity:1;transform:translateX(0)}}
+
+/* meters */
+.meter-wrap{margin:1.6rem 0}
+.meter-row{margin-bottom:1rem}
+.meter-label{font-size:.83rem;color:var(--muted);margin-bottom:.35rem;display:flex;justify-content:space-between}
+.meter-bar{height:9px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden}
+.meter-fill{height:100%;background:linear-gradient(90deg,var(--pink-deep),var(--purple-deep));border-radius:99px;width:0%;transition:width 2.3s cubic-bezier(.17,.67,.3,1.1)}
+
+/* timeline */
+.tl{position:relative;padding-left:1.8rem;margin:1.5rem 0}
+.tl::before{content:'';position:absolute;left:5px;top:8px;bottom:0;width:1px;background:linear-gradient(to bottom,var(--pink-deep),var(--purple-deep),transparent)}
+.tl-item{position:relative;margin-bottom:1.7rem;text-align:left}
+.tl-dot{position:absolute;left:-1.52rem;top:5px;width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--purple));box-shadow:0 0 14px rgba(236,72,153,.65)}
+.tl-label{font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;color:var(--pink-deep);margin-bottom:.28rem;font-weight:500}
+.tl-text{font-size:.98rem;color:var(--muted);line-height:1.8}
+
+/* surprise */
+.surprise-box{background:linear-gradient(135deg,rgba(236,72,153,.08),rgba(147,51,234,.08));border:1px solid rgba(236,72,153,.24);border-radius:22px;padding:2.2rem;margin-top:1.5rem;animation:popIn .65s cubic-bezier(.17,.67,.3,1.4)}
+@keyframes popIn{from{transform:scale(.72);opacity:0}to{transform:scale(1);opacity:1}}
+
+/* confetti */
+.cp{position:fixed;top:-20px;animation:cFall linear forwards;pointer-events:none;z-index:9999;border-radius:2px}
+@keyframes cFall{to{top:110vh;transform:translateX(var(--x)) rotate(var(--r));opacity:0}}
+
+/* BIG love reveal */
+.love-reveal{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,7vw,4rem);background:linear-gradient(135deg,#fbbf24,#f9a8d4,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.3;margin:1rem 0;animation:popIn .8s cubic-bezier(.17,.67,.3,1.4)}
+
+/* sound */
+#sound-btn{position:fixed;top:1.2rem;right:1.2rem;z-index:100;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:50px;padding:.5rem 1.1rem;color:var(--muted);font-size:.85rem;cursor:pointer;backdrop-filter:blur(10px);transition:all .2s}
+#sound-btn:hover{background:rgba(255,255,255,.13);color:var(--text)}
+
+/* dots */
+#progress-dots{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:100}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.18);transition:all .3s}
+.dot.active{background:linear-gradient(135deg,var(--pink),var(--purple));box-shadow:0 0 8px rgba(236,72,153,.6);width:26px;border-radius:4px}
+
+.fade-in{animation:fadeIn .9s ease forwards}
+@keyframes fadeIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+.deco{font-size:2.2rem;margin-bottom:.9rem;display:block}
+
+/* alert */
+#fake-alert{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:9999;background:var(--dark2);border:1px solid var(--pink-deep);border-radius:20px;padding:2.2rem 2.5rem;max-width:400px;width:92%;text-align:center;box-shadow:0 10px 60px rgba(236,72,153,.42);animation:popIn .4s cubic-bezier(.17,.67,.3,1.3)}
+#fake-alert h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--pink);margin-bottom:.9rem}
+#alert-overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:9998}
+
+.spark{position:fixed;pointer-events:none;z-index:9999;border-radius:50%;animation:cFall .7s ease forwards}
+
+@media(max-width:480px){.glass{padding:2rem 1.3rem}h1{font-size:1.9rem}}
+</style>
+</head>
+<body>
+
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+<canvas id="particles-canvas"></canvas>
+<button id="sound-btn" onclick="toggleSound()">🎵 Music</button>
+<div id="progress-dots">
+  <div class="dot active" id="d0"></div>
+  <div class="dot" id="d1"></div>
+  <div class="dot" id="d2"></div>
+  <div class="dot" id="d3"></div>
+  <div class="dot" id="d4"></div>
+  <div class="dot" id="d5"></div>
+  <div class="dot" id="d6"></div>
+</div>
+
+<!-- 0: Entry -->
+<div class="screen" id="screen-0">
+  <div class="glass fade-in">
+    <span class="deco heartbeat">💕</span>
+    <p style="font-size:.85rem;letter-spacing:.15em;text-transform:uppercase;color:var(--pink-deep);margin-bottom:.4rem;font-weight:500">I made this just for you</p>
+    <h1>Hey, <span class="name-glow">Zozte</span> 🌙</h1>
+    <p style="color:var(--text);font-size:1.1rem">Ten days. That's all it took for me to want to make you something like this.</p>
+    <p style="font-size:.97rem">If that tells you anything — press the button.</p>
+    <button class="btn" onclick="goto(1)">Click here if you love me ❤️</button>
+  </div>
+</div>
+
+<!-- 1: Birthday -->
+<div class="screen hidden" id="screen-1">
+  <div class="glass fade-in">
+    <span class="deco">🎂</span>
+    <h1>Happy Birthday,<br><em>Azaa</em> ✨</h1>
+    <p style="color:var(--text);font-size:1.08rem">I've known you for a short time. But somehow, your birthday already feels like something I want to celebrate properly.</p>
+    <p>Not because I have to. Because something about you makes me <em>want</em> to show up — and I don't take that lightly.</p>
+    <div class="qcard">
+      <p>"Ten days of talking to you, and I already know — you're not someone I want to be casual about."</p>
+    </div>
+    <button class="btn" onclick="goto(2)">Keep going →</button>
+  </div>
+</div>
+
+<!-- 2: Typing — the honest letter -->
+<div class="screen hidden" id="screen-2">
+  <div class="glass">
+    <span class="deco">✉️</span>
+    <h2>Something honest, Azaa.</h2>
+    <p id="typing-text"><span class="cursor"></span></p>
+    <button class="btn hidden" id="continue-2" onclick="goto(3)">I hear you 🥺 → Continue</button>
+  </div>
+</div>
+
+<!-- 3: The reassurance about the past -->
+<div class="screen hidden" id="screen-3">
+  <div class="glass fade-in">
+    <span class="deco">🤍</span>
+    <h2>I know you know about my past, Azaa.</h2>
+    <p style="color:var(--text)">And I'm not going to pretend it didn't happen. But I need you to understand something clearly.</p>
+
+    <div class="qcard">
+      <p>What happened before is not something I'm running from, and it's not something that landed me here by accident. I am here — talking to you, thinking about you — because I chose to be. That's different.</p>
+    </div>
+    <div class="qcard purple">
+      <p>You are not a replacement. You are not a rebound. You are someone I found and thought: <em>"I want to know everything about her."</em> That feeling doesn't come from a broken place. It comes from something real.</p>
+    </div>
+    <div class="qcard gold">
+      <p>I know your personality is not easy to read. I know you don't open up fast. I'm not asking you to. I'm just asking you to let me be someone who stays long enough to see what's underneath — because I genuinely want to.</p>
+    </div>
+
+    <button class="btn" onclick="goto(4)">There's more →</button>
+  </div>
+</div>
+
+<!-- 4: What I feel — honest, not over the top -->
+<div class="screen hidden" id="screen-4">
+  <div class="glass">
+    <span class="deco">💌</span>
+    <h2>What I actually feel, honestly.</h2>
+    <div id="poem-container"></div>
+    <div id="love-meters" style="display:none;margin-top:1.8rem">
+      <div class="meter-row">
+        <div class="meter-label"><span>How much I mean this</span><span style="color:var(--pink)">100%</span></div>
+        <div class="meter-bar"><div class="meter-fill" data-w="100"></div></div>
+      </div>
+      <div class="meter-row">
+        <div class="meter-label"><span>How safe you can be with me</span><span style="color:var(--pink)">100%</span></div>
+        <div class="meter-bar"><div class="meter-fill" data-w="100"></div></div>
+      </div>
+      <div class="meter-row">
+        <div class="meter-label"><span>How serious I am about you</span><span style="color:var(--pink)">100%</span></div>
+        <div class="meter-bar"><div class="meter-fill" data-w="100"></div></div>
+      </div>
+      <div class="meter-row">
+        <div class="meter-label"><span>How much I want to keep going</span><span style="color:var(--pink)">∞</span></div>
+        <div class="meter-bar"><div class="meter-fill" data-w="100"></div></div>
+      </div>
+    </div>
+    <button class="btn hidden" id="continue-4" onclick="goto(5)">One more thing 💕</button>
+  </div>
+</div>
+
+<!-- 5: The future — honest, not grandiose -->
+<div class="screen hidden" id="screen-5">
+  <div class="glass fade-in">
+    <span class="deco">🌱</span>
+    <h2>Where I want this to go.</h2>
+    <p style="color:var(--text);font-size:1.05rem">I'm not going to make big promises about things we haven't built yet. That's not fair to either of us.</p>
+    <p>But here is what I can tell you — honestly, without exaggerating:</p>
+
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-label">Right now</div>
+        <div class="tl-text">I want to keep talking to you. I want to understand the parts of you that you don't show easily. Your mystery doesn't push me away — it makes me curious in the best way.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-label">What I want you to feel</div>
+        <div class="tl-text">Safe. Not pressured. Not compared to anyone. Just — seen. I see you, Azaa. And I like what I see. Very much.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-label">What I'm not doing</div>
+        <div class="tl-text">I'm not repeating old patterns. I'm not here because I'm lonely or lost. I'm here because talking to you for ten days felt more real than a lot of things that took much longer.</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-label">What I want for us</div>
+        <div class="tl-text">I don't know exactly where this goes. But I want to find out — with patience, with honesty, with you. That's enough for now. And it's genuine.</div>
+      </div>
+    </div>
+    <button class="btn" onclick="goto(6)">Last page 🎁</button>
+  </div>
+</div>
+
+<!-- 6: The confession — simple, direct, real -->
+<div class="screen hidden" id="screen-6">
+  <div class="glass fade-in">
+    <span class="deco">🎁</span>
+    <p style="font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;color:var(--pink-deep);font-weight:500;margin-bottom:.5rem">The part I really wanted to say</p>
+
+    <button class="btn" id="surprise-btn" onclick="revealLove()">Click to read it 💜</button>
+
+    <div class="surprise-box hidden" id="love-content">
+      <div class="love-reveal" id="love-text-big"></div>
+      <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.12rem;color:var(--text);line-height:2;margin-top:1rem" id="love-body"></p>
+    </div>
+
+    <div id="ending-section" class="hidden" style="margin-top:2rem;border-top:1px solid rgba(255,255,255,.09);padding-top:1.5rem">
+      <p style="font-size:1rem;color:var(--text)">And one last thing, Zozte —</p>
+      <p style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.05rem;color:var(--pink)">
+        You are officially under full observation until further notice. 😂❤️
+      </p>
+      <p style="font-size:.9rem;margin-top:.3rem">No escape. You read the whole thing. You're involved now.</p>
+      <button class="btn" style="background:linear-gradient(135deg,#fbbf24,#f59e0b);box-shadow:0 4px 28px rgba(251,191,36,.38);margin-top:1rem" onclick="showAlert()">
+        ⚠️ Read the Terms &amp; Conditions
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- FAKE ALERT -->
+<div id="alert-overlay" class="hidden" onclick="closeAlert()"></div>
+<div id="fake-alert" class="hidden">
+  <h3>⚠️ Official Notice</h3>
+  <p style="color:var(--muted);margin-bottom:1rem;line-height:2;text-align:left">
+    By reading this website, <strong style="color:var(--pink)">Azaa (a.k.a. Zozte)</strong> has agreed to:<br>
+    ✅ Being thought about way too often<br>
+    ✅ Receiving honest feelings at inconvenient hours<br>
+    ✅ Someone who isn't going anywhere<br>
+    ✅ Being treated like she matters — because she does<br>
+    ✅ Having someone in her corner, fully and without conditions<br><br>
+    <em style="color:var(--pink)">No fine print. No hidden clauses. Just this. 💕</em>
+  </p>
+  <button class="btn" onclick="closeAlert()">I Accept 💜</button>
+</div>
+
+<audio id="bg-music" loop>
+  <source src="videoplayback.weba" type="audio/webm">
+</audio>
+
+<script>
+let cur=0, musicOn=false;
+const SCREENS=7;
+const music=document.getElementById('bg-music');
+
+/* particles */
+const canvas=document.getElementById('particles-canvas'),ctx=canvas.getContext('2d');let pts=[];
+function resize(){canvas.width=innerWidth;canvas.height=innerHeight;}resize();window.addEventListener('resize',resize);
+const CHARS=['❤','💕','✦','·','°','★','✿'];
+function mkP(){return{x:Math.random()*canvas.width,y:canvas.height+Math.random()*200,sz:Math.random()*12+4,vy:-(Math.random()*.6+.2),vx:(Math.random()-.5)*.4,a:Math.random()*.4+.15,ch:CHARS[Math.floor(Math.random()*CHARS.length)],wb:Math.random()*Math.PI*2,ws:Math.random()*.022+.005};}
+for(let i=0;i<45;i++){let p=mkP();p.y=Math.random()*canvas.height;pts.push(p);}
+function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);pts.forEach((p,i)=>{p.wb+=p.ws;ctx.save();ctx.globalAlpha=p.a;ctx.font=p.sz+'px serif';ctx.fillStyle=(p.ch==='❤'||p.ch==='💕')?'#ec4899':'#d8b4fe';ctx.fillText(p.ch,p.x+Math.sin(p.wb)*7,p.y);ctx.restore();p.x+=p.vx;p.y+=p.vy;if(p.y<-30)pts[i]=mkP();});requestAnimationFrame(draw);}draw();
+
+/* nav */
+function goto(n){
+  document.getElementById('screen-'+cur).classList.add('hidden');cur=n;
+  const s=document.getElementById('screen-'+n);s.classList.remove('hidden');
+  s.querySelectorAll('.fade-in').forEach(el=>{el.style.animation='none';void el.offsetWidth;el.style.animation='';});
+  updateDots();
+  if(n===2)startTyping();
+  if(n===4)startPoem();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function updateDots(){for(let i=0;i<SCREENS;i++){const d=document.getElementById('d'+i);if(d)d.className='dot'+(i===cur?' active':'');}}
+
+/* typing — honest letter, addresses past, reassures */
+const LINES=[
+  "I want to be honest with you, Azaa.",
+  "I know you found out about what happened before.",
+  "And I know that probably made you wonder — is this real? Am I just someone to fill a gap?",
+  "I need you to hear me when I say: no.",
+  "I'm not here because I'm lost or hurting or looking for something familiar.",
+  "I'm here because in ten days, something about you made everything else feel quiet.",
+  "You have this way of being mysterious without trying to be —",
+  "and instead of frustrating me, it makes me want to stay.",
+  "You make me want to earn your trust. And I don't say that lightly."
+];
+let li=0,ci=0;
+function startTyping(){li=0;ci=0;document.getElementById('typing-text').innerHTML='<span class="cursor"></span>';setTimeout(typeNext,500);}
+function typeNext(){
+  if(li>=LINES.length){document.getElementById('continue-2').classList.remove('hidden');return;}
+  const line=LINES[li],el=document.getElementById('typing-text');
+  if(ci===0&&li>0){el.innerHTML=el.innerHTML.replace('<span class="cursor"></span>','');el.innerHTML+='<br>';}
+  el.innerHTML=el.innerHTML.replace('<span class="cursor"></span>','');
+  el.innerHTML+=line[ci]+'<span class="cursor"></span>';
+  ci++;
+  if(ci>=line.length){li++;ci=0;setTimeout(typeNext,li===4?950:700);}
+  else setTimeout(typeNext,34);
+}
+
+/* poem */
+const POEM=[
+  "I'm not pretending I have everything figured out.",
+  "I'm just sure that I want you to be part of figuring it out.",
+  "Your quietness doesn't scare me — it draws me in.",
+  "Your complexity doesn't overwhelm me — it interests me.",
+  "I don't need you to be easy. I just need you to be you.",
+  "And I'll be honest with you, always — starting now."
+];
+function startPoem(){
+  const c=document.getElementById('poem-container');c.innerHTML='';
+  POEM.forEach((line,i)=>{const el=document.createElement('p');el.className='poem-line';el.textContent=line;el.style.animationDelay=(i*.52)+'s';c.appendChild(el);});
+  const d=POEM.length*520+400;
+  setTimeout(()=>{
+    document.getElementById('love-meters').style.display='block';
+    document.querySelectorAll('.meter-fill').forEach(m=>{setTimeout(()=>{m.style.width=m.dataset.w+'%';},120);});
+  },d);
+  setTimeout(()=>document.getElementById('continue-4').classList.remove('hidden'),d+2500);
+}
+
+/* love reveal — the real confession */
+function revealLove(){
+  document.getElementById('surprise-btn').classList.add('hidden');
+  const box=document.getElementById('love-content');
+  box.classList.remove('hidden');
+
+  /* animate the big text word by word */
+  const big=document.getElementById('love-text-big');
+  const words=["I", "love", "you,", "Azaa."];
+  let wi=0;
+  big.textContent='';
+  const wInt=setInterval(()=>{
+    if(wi<words.length){big.textContent+=(wi>0?' ':'')+words[wi];wi++;}
+    else clearInterval(wInt);
+  },320);
+
+  /* body fades in after big text */
+  setTimeout(()=>{
+    const body=document.getElementById('love-body');
+    body.style.opacity=0;
+    body.innerHTML=`Not because the timing is perfect — it isn't.<br>Not because I've known you forever — I haven't.<br><br>
+But because in the time I have known you, I felt something I didn't expect,<br>
+something that made me want to be careful with you, <em>honest</em> with you,<br>
+and someone you can actually trust.<br><br>
+<strong style="color:var(--pink)">I love you. And that's not something I say just to say it.</strong>`;
+    body.style.transition='opacity 1s ease';
+    setTimeout(()=>body.style.opacity=1, 100);
+  }, words.length*320+600);
+
+  confetti();
+  setTimeout(()=>document.getElementById('ending-section').classList.remove('hidden'),5000);
+}
+
+/* confetti */
+function confetti(){
+  const cols=['#ec4899','#c084fc','#fbbf24','#f9a8d4','#a78bfa','#fff'];
+  for(let i=0;i<100;i++){
+    setTimeout(()=>{
+      const el=document.createElement('div');el.className='cp';
+      const s=Math.random()*9+5;
+      el.style.cssText=`left:${Math.random()*100}vw;background:${cols[Math.floor(Math.random()*cols.length)]};width:${s}px;height:${s}px;border-radius:${Math.random()>.5?'50%':'3px'};--x:${(Math.random()-.5)*260}px;--r:${Math.random()*800}deg;animation-duration:${Math.random()*2.5+2}s;animation-delay:${Math.random()*.6}s`;
+      document.body.appendChild(el);setTimeout(()=>el.remove(),5500);
+    },i*22);
+  }
+}
+
+/* alert */
+function showAlert(){document.getElementById('fake-alert').classList.remove('hidden');document.getElementById('alert-overlay').classList.remove('hidden');}
+function closeAlert(){document.getElementById('fake-alert').classList.add('hidden');document.getElementById('alert-overlay').classList.add('hidden');confetti();}
+
+/* sound */
+function toggleSound(){
+  const b=document.getElementById('sound-btn');
+  if(musicOn){music.pause();b.textContent='🎵 Music';musicOn=false;}
+  else{music.volume=.3;music.play().catch(()=>{});b.textContent='🔇 Mute';musicOn=true;}
+}
+
+/* cursor sparkle */
+document.addEventListener('mousemove',e=>{
+  if(Math.random()>.84){
+    const el=document.createElement('div');el.className='spark';const s=Math.random()*7+4;
+    el.style.cssText=`left:${e.clientX-s/2}px;top:${e.clientY-s/2}px;width:${s}px;height:${s}px;background:rgba(236,72,153,${Math.random()*.5+.3});--x:${(Math.random()-.5)*28}px;--r:${Math.random()*360}deg;animation-duration:.65s`;
+    document.body.appendChild(el);setTimeout(()=>el.remove(),700);
+  }
+});
+</script>
+</body>
+</html>
